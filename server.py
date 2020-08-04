@@ -1,8 +1,9 @@
 import socket
+import json
 
 UDP_IP = '127.0.0.1'
 UDP_PORT = 8080
-BUFFER = 1024
+BUFFER = 4096
 RESP = 'hello from the server!'
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -18,4 +19,4 @@ while True:
 		sent = sock.sendto(RESP.encode('utf-8'), addr)
 		print("response sent!")
 		# sock.close()
-	
+	sleep(1)

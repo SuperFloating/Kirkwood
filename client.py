@@ -1,9 +1,15 @@
 import socket
+import json
 
 UDP_IP = '127.0.0.1'
 UDP_PORT = 8080
-BUFFER = 1024
-MSG = 'hihi'
+BUFFER = 4096
+
+with open('test.json') as f:
+	json_data = json.load(f)
+
+# print(json_data)
+MSG = str(json_data)
 
 print("UDP target IP: %s" % UDP_IP)
 print("UDP target port: %s" % UDP_PORT)
