@@ -19,4 +19,4 @@ while True:
 		sent = sock.sendto(RESP.encode('utf-8'), addr)
 		print("response sent!")
 		# sock.close()
-	sleep(1)
+	# sleep(1)
