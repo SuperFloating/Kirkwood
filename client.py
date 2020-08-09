@@ -5,11 +5,12 @@ UDP_IP = '127.0.0.1'
 UDP_PORT = 8080
 BUFFER = 4096
 
-with open('test.json') as f:
-	json_data = json.load(f)
+MSG = ""
+with open('template.json') as f:
+	data_in_json = json.load(f)
 
-# print(json_data)
-MSG = str(json_data)
+# print(data_in_json)
+MSG = json.dumps(data_in_json)
 
 print("UDP target IP: %s" % UDP_IP)
 print("UDP target port: %s" % UDP_PORT)
