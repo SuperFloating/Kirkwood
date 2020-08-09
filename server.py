@@ -1,5 +1,7 @@
 import socket
 import json
+import perform_action
+import parse_request as pr
 
 UDP_IP = '127.0.0.1'
 UDP_PORT = 8080
@@ -12,11 +14,15 @@ sock.bind(server_addr)
 
 while True:
 	data, addr = sock.recvfrom(BUFFER)
+	data = data.decode('utf-8')
+
 	print(addr)
-	print(data.decode('utf-8'))
+	print(data)
 
 	if data:
 		sent = sock.sendto(RESP.encode('utf-8'), addr)
 		print("response sent!")
-		# sock.close()
-	# sleep(1)
+		
+		# performs actions
+		data_in_json = json.loads(data)
+		pr.parse_request(data_in_json)
