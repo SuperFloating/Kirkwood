@@ -3,7 +3,7 @@ import json
 import perform_action
 import parse_request as pr
 
-UDP_IP = 'localhost'
+UDP_IP = ''
 UDP_PORT = 8080
 BUFFER = 4096
 RESP = 'hello from the server!'
