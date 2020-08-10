@@ -1,7 +1,7 @@
 import socket
 import json
 
-UDP_IP = '127.0.0.1'
+UDP_IP = '54.200.56.121'
 UDP_PORT = 8080
 BUFFER = 4096
 
