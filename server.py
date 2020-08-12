@@ -1,5 +1,7 @@
 import socket
 import json
+from datetime import datetime
+
 import perform_action
 import parse_request as pr
 
@@ -16,13 +18,17 @@ while True:
 	data, addr = sock.recvfrom(BUFFER)
 	data = data.decode('utf-8')
 
-	print(addr)
-	print(data)
-
 	if data:
+
+		now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+		print(now)
+		print(str(addr), '\n', str(data))
+
 		sent = sock.sendto(RESP.encode('utf-8'), addr)
 		print("response sent!")
 		
 		# performs actions
 		data_in_json = json.loads(data)
 		pr.parse_request(data_in_json)
+
+		print('\n')
