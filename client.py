@@ -4,7 +4,7 @@ import json
 # local host
 # UDP_IP = '127.0.0.1'
 # aws host
-UDP_IP = '54.200.56.121'
+UDP_IP = '34.212.178.87'
 UDP_PORT = 8080
 BUFFER = 4096
 
