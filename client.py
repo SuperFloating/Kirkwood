@@ -4,8 +4,12 @@ import json
 # local host
 # UDP_IP = '127.0.0.1'
 # aws host
-UDP_IP = '34.212.178.87'
-UDP_PORT = 8080
+
+with open('credential.json') as c:
+	credential = json.load(c)
+
+UDP_IP = credential['ip']
+UDP_PORT = credential['port']
 BUFFER = 4096
 
 MSG = ""
