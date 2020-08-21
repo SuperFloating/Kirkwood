@@ -7,8 +7,8 @@ import json
 # aws host
 with open('credential.json') as c:
 	credential = json.load(c)
-UDP_IP = credential['ip']
-UDP_PORT = credential['port']
+UDP_IP = credential['server_ip']
+UDP_PORT = credential['server_port']
 BUFFER = 4096
 MSG = ""
 with open('template.json') as f:
