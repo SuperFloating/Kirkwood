@@ -1,14 +1,18 @@
 import pandas as pd
 import pymysql
+import json
 
-host = "kirkwooddb.chvh78zduuko.us-west-2.rds.amazonaws.com"
-port = 3306
-dbname = "test"
-user = "admin"
-password = "KirkwoodDB"
+with open('credential.json') as c:
+	credential = json.load(c)
+host = credential['db_host']
+port = credential['db_port']
+schema = credential['db_schema']
+user = credential['db_user']
+password = credential['db_password']
+
 
 conn = pymysql.connect(host, user = user, port = port,
-                           passwd = password, db = dbname)
+                           passwd = password, db = schema)
 
 def send_msg():
 	print("sending message")
