@@ -1,6 +1,7 @@
 import pandas as pd
 import pymysql
 import json
+import datetime
 
 with open('credential.json') as c:
 	credential = json.load(c)
@@ -33,7 +34,7 @@ def store_msg(request):
 
 	target = request['message']['chatroomid']
 	author = request['message']['userid']
-	time = request['message']['clock']
+	time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	content = request['message']['content']
 	msg_info = "(%d, %d, \"%s\", \"%s\", \"%s\");" % (store_msg.msgid, target, author, time, content)
 	with conn.cursor() as cur:
