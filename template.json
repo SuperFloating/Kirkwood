@@ -1,7 +1,7 @@
 {
     "action": "send",
     "message": {
-        "userid": "layan@ucsc.edu",
+        "userid": "layan",
         "clock": "Aug 20",
         "content": "hihi",
         "chatroomid": 101,

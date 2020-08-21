@@ -21,9 +21,12 @@ def send_msg(request):
 	author = request['message']['userid']
 	time = request['message']['clock']
 	content = request['message']['content']
-	msg_info = "(%d, %d, %s, %s, %s);" % (1, target, author, time, content)
+	msg_info = "(%d, %d, \"%s\", \"%s\", \"%s\");" % (1, target, author, time, content)
 	with conn.cursor() as cur:
-		cur.execute("INSERT INTO message (messageid, roomid, userid, clock, content) VALUES " + msg_info)
+		print("cp1")
+		cur.execute("INSERT INTO message (messageid, chatroomid, userid, clock, content) VALUES " + msg_info)
+	conn.commit()
+	print("cp2")
 
 
 # reads in a json object request

@@ -16,6 +16,7 @@ with open('template.json') as f:
 # print(data_in_json)
 MSG = json.dumps(data_in_json)
 
+# UDP_IP = '127.0.0.1'
 print("UDP target IP: %s" % UDP_IP)
 print("UDP target port: %s" % UDP_PORT)
 print("message: %s" % MSG)
