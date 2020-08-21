@@ -1,10 +1,10 @@
 {
     "action": "send",
     "message": {
-        "sender": "layan@ucsc.edu",
-        "group": "",
-        "content": "",
-        "time": ""
-        
+        "userid": "layan@ucsc.edu",
+        "clock": "Aug 20",
+        "content": "hihi",
+        "chatroomid": 101,
+        "messageid": ""
     }
 }

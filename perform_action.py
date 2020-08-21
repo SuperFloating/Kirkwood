@@ -14,8 +14,18 @@ password = credential['db_password']
 conn = pymysql.connect(host, user = user, port = port,
                            passwd = password, db = schema)
 
-def send_msg():
+# reads in a json object request
+def send_msg(request):
 	print("sending message")
+	target = request['message']['chatroomid']
+	author = request['message']['userid']
+	time = request['message']['clock']
+	content = request['message']['content']
+	msg_info = "(%d, %d, %s, %s, %s);" % (1, target, author, time, content)
+	with conn.cursor() as cur:
+		cur.execute("INSERT INTO message (messageid, roomid, userid, clock, content) VALUES " + msg_info)
 
-def retrieve_msg():
+
+# reads in a json object request
+def retrieve_msg(request):
 	print("retrieving message")
