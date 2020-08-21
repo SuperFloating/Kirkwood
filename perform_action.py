@@ -31,18 +31,15 @@ def store_msg(request):
 		else: 
 			store_msg.msgid = fetchid[0] + 1
 
-
 	target = request['message']['chatroomid']
 	author = request['message']['userid']
 	time = request['message']['clock']
 	content = request['message']['content']
 	msg_info = "(%d, %d, \"%s\", \"%s\", \"%s\");" % (store_msg.msgid, target, author, time, content)
 	with conn.cursor() as cur:
-		print("cp1")
 		cur.execute("INSERT INTO message (messageid, chatroomid, userid, clock, content) VALUES " + msg_info)
-	conn.commit()
-	print("cp2")
-	
+	conn.commit()	
+
 
 
 # reads in a json object request
