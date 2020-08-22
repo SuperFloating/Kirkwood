@@ -39,7 +39,7 @@ def store_msg(request):
 	msg_info = "(%d, %d, \"%s\", \"%s\", \"%s\");" % (store_msg.msgid, target, author, time, content)
 	with conn.cursor() as cur:
 		cur.execute("INSERT INTO message (messageid, chatroomid, userid, clock, content) VALUES " + msg_info)
-	conn.commit()	
+	conn.commit()
 
 
 
