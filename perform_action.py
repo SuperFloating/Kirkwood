@@ -11,7 +11,6 @@ schema = credential['db_schema']
 user = credential['db_user']
 password = credential['db_password']
 
-
 conn = pymysql.connect(host, user = user, port = port,
 						   passwd = password, db = schema)
 
