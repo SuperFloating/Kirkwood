@@ -11,7 +11,7 @@ UDP_IP = credential['server_ip']
 UDP_PORT = credential['server_port']
 BUFFER = 4096
 MSG = ""
-with open('template.json') as f:
+with open('request_template.json') as f:
 	data_in_json = json.load(f)
 # print(data_in_json)
 MSG = json.dumps(data_in_json)
