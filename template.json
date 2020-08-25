@@ -1,10 +1,15 @@
-{
-    "action": "send",
+{	
+	//store, retrieve
+    "action": "store",
     "message": {
+    	// stands for author when storing, requester when retrieving
         "userid": "layan",
-        "clock": "Aug 20",
+        // "clock": "2020-08-21 14:24:30",
+        // content only required when storing message
         "content": "hihi",
+        // always required
         "chatroomid": 101,
+        // latest msgid required when retrieving
         "messageid": ""
     }
 }
