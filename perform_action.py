@@ -46,3 +46,33 @@ def store_msg(request):
 # reads in a json object request
 def retrieve_msg(request):
 	print("retrieving message...")
+	target = request['message']['chatroomid']
+	last_msgid = request['message']['messageid']
+	with conn.cursor() as cur: 
+		sql = "SELECT * FROM message WHERE chatroomid = %d AND messageid > %d;" % (target, last_msgid)
+		cur.execute(sql)
+		msgs = cur.fetchall()
+	print(msgs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
