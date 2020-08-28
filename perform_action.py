@@ -52,9 +52,20 @@ def retrieve_msg(request):
 		sql = "SELECT * FROM message WHERE chatroomid = %d AND messageid > %d;" % (target, last_msgid)
 		cur.execute(sql)
 		msgs = cur.fetchall()
-	print(msgs)
+	# print(msgs)
+	# print(type(msgs))
 
+	msg_list = []
+	for i in range(0,len(msgs)):
+		thismsg = msgs[i]
+		# print(thismsg)
+		thismsg_in_json = json.dumps(dict(messageid = thismsg[0], chatroomid = thismsg[1], 
+						userid = thismsg[2], clock = thismsg[3].strftime("%Y-%m-%d %H:%M:%S"), content = thismsg[4]))
+		msg_list.append(thismsg_in_json)
 
+	retrv = '{"messages" : %s}' % msg_list
+
+	print(retrv)
 
 
 
